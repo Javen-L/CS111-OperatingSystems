@@ -1,0 +1,91 @@
+NAME: Adam Young
+EMAIL: youngcadam@gmail.com
+ID: 000111000
+SLIP DAYS: 0
+
+
+####File Descriptions
+Makefile: to build the deliverable program, output, graphs, and tarball.
+lab2_add.csv: containing all of my results for all of the Part-1 tests.
+lab2_list.csv: containing all of my results for all of the Part-2 tests.
+graphs:
+	part1:
+		-lab2_add-1.png: threads and iterations required to generate a failure
+		 (with and without yields)
+		-lab2_add-2.png: average time per operation with and without yields.
+		-lab2_add-3.png: average time per (single threaded) operation vs. the
+		 number of iterations.
+		-lab2_add-4.png: threads and iterations run successfully with yields 
+		 under each of the synchronization options.
+		-lab2_add-5.png: average time per (protected) operation vs. the number 
+		 of threads.
+	part2:
+		-lab2_list-1.png: average time per (single threaded) unprotected 
+		 operation vs. number of iterations
+		-lab2_list-2.png: threads and iterations required to generate a 
+		 failure (with and without yields).
+		-lab2_list-3.png: iterations that can run (protected) without failure.
+		-lab2_list-4.png: cost per operation vs the number of threads for the 
+		 various synchronization options.
+
+####Makefile
+build: compile all programs 
+
+tests: run all (over 200) specified test cases to generate results in CSV files
+
+graphs: use gnuplot(1) and the supplied data reduction scripts to generate the required graphs
+
+dist: create the deliverable tarball
+
+clean: delete all programs and output created by the Makefile
+
+
+####Resources
+clock_gettime(2):
+	-http://www.cs.tufts.edu/comp/111/examples/Time/clock_gettime.c
+
+doubly linked list implementations:
+	-https://www.geeksforgeeks.org/doubly-linked-list/
+	-https://www.geeksforgeeks.org/sorted-insert-for-circular-linked-list/
+	-https://www.geeksforgeeks.org/doubly-circular-linked-list-set-2-deletion/
+	-https://www.geeksforgeeks.org/program-find-size-doubly-linked-list/
+	-https://www.geeksforgeeks.org/search-an-element-in-doubly-circular-linked-list/
+
+####Questions
+
+######2.1.1
+It takes many iterations before errors are seen because if there is a small
+number of iterations, the threads will finish within their time slices.
+
+There's a race condition caused by a context switch occuring immediately
+after `sum = *pointer + value` but before `*pointer = sum`. Because threads
+have their own stacks, this causes the next thread that executes to increment 
+it's own copy of the sum variable to the same value as the previous thread's
+sum. When either thread resumes, they will both update the global variable
+pointed to by *pointer value that the previous thread will set it to when it
+resumes. This problem can be mediated atomic exchange. 
+
+Smaller iterations seldom fail because there are less (or zero) context
+switches for threads that do not use their entire time slices. This is 
+
+
+
+######2.1.2
+yields are slower due to the cost of context switching. additional time is used
+for loading the new thread's stack. Not possible to get valid time due to other
+processes running at the same time.
+
+######2.1.3
+So many iterations that they start to amortizes the overhead for context switching.
+
+
+######2.1.4
+Cost per iteration decreases exponentially and ends up stabilizing. Tune per op increased
+linearly. From this we try to find the sweet spot and can visually point it out.
+
+######2.2.1
+In part 1 the cost was much greater than in part 2. The effect in part 2 was negligible
+Linked list mutex locks stay locked for much longer durations.
+
+######2.2.2
+For a low number of threads, spin locks seem faster. Mutex work better with high numbers.

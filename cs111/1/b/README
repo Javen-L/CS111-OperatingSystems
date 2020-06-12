@@ -1,0 +1,14 @@
+NAME: Adam Young
+EMAIL: youngcadam@gmail.com
+ID: 000111000
+SLIPDAYS: 0
+
+
+
+
+
+Resources:
+
+	for server-client communication:
+		- http://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html~
+		- https://linux.die.net/man/7/socket

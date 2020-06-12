@@ -1,0 +1,12 @@
+NAME: Adam Young
+EMAIL: youngcadam@gmail.com
+ID: 000111000
+SLIPDAYS: 0
+
+README: file descriptions
+
+lab4b.c: embedded application for recieving temperature from beaglebone green
+wireless
+
+Makefile: builds the requested program and has targest for clean to build a
+fresh executable, dist to build the tar, and check to run tests.

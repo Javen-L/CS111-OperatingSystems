@@ -1,0 +1,28 @@
+NAME: Adam Young
+EMAIL: youngcadam@gmail.com
+ID: 000111000
+SLIPDAYS: 0
+
+README: file descriptions
+
+lab4c_tcp.c: embedded application for logging temperature from beaglebone green
+wireless and reporting to a server through the internet
+
+lab4c_tls.c: an encrypted version of lab4c_tcp.c 
+
+Makefile: builds the requested program and with the following targets,
+    - default to build build both versions of my program 
+    - clean to delete all programs and output, restore directory to original state
+    - dist to build the tar
+
+Resources:
+    - this helped me figure out that I don't need to use malloc in the optarg loop
+      https://stackoverflow.com/questions/19748096/optarg-and-command-line-arguments
+    - client example: https://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/client.c
+    - fflush: https://linux.die.net/man/3/fflush
+    - dprintf: https://linux.die.net/man/3/dprintf
+    - how to install openssl: https://www.tecmint.com/install-openssl-from-source-in-centos-ubuntu/
+      openssl wasn't installed on my beaglebone for some reason so I built from source
+    - I was getting an error where #include <openssl/ssl.h> said the file didn't exist even though
+      I could see it so I had to uninstall/reinstall some stuff
+      https://stackoverflow.com/questions/46008624/

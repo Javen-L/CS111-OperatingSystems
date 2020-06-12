@@ -1,0 +1,20 @@
+NAME: Adam Young
+EMAIL: youngcadam@gmail.com
+ID: 000111000
+
+
+
+
+
+
+Resources:
+
+termios:
+- https://blog.nelhage.com/2009/12/a-brief-introduction-to-termios/
+- https://www.gnu.org/software/libc/manual/html_node/Noncanon-Example.html
+  - this was used as a skeleton for my project
+fork, execl:
+- mainly the man pages and chapter 5 in our textbook, figure 5.4 was helpful
+- http://www.linuxonly.nl/docs/2/2_Sentinel_warning_missing_sentinel_in_function_call.html
+poll:
+- http://www.unixguide.net/unix/programming/2.1.2.shtml

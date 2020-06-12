@@ -1,0 +1,9 @@
+NAME: Adam Young
+EMAIL: youngcadam@gmail.com
+ID: 404610095
+SLIPDAYS: 0
+
+lab3b.py: python script that parses a CSV file extraced from a file system
+	  and checks for inconsistencies/corruptions in the file system
+
+Makefile: a file that compiles the program and builds project for submission

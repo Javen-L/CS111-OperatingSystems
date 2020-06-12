@@ -1,0 +1,15 @@
+NAME: Adam Young
+EMAIL: youngcadam@gmail.com
+ID: 000111000
+SLIPDAYS: 0
+
+Makefile:
+	default: compiles and builds lab3a from C source file lab3a.c
+
+	clean: delete old executable and tar.gz
+
+	dist: build the tarbell requested by lab spec
+
+lab3a.c: C source file that analyzes the EXT2 file system and outputs
+	 a summary to stdout. Note that there is one function per section
+	 mentioned in the spec.
